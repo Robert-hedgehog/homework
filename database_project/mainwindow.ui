@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Pharmacy Application</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_Main" stretch="1,4">
+    <item>
+     <widget class="QListWidget" name="listWidget_Menu">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_ContentArea">
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget_Content">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_Placeholder">
+         <layout class="QVBoxLayout" name="verticalLayout_Placeholder">
+          <item>
+           <widget class="QLabel" name="label_Placeholder">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Выберите раздел в меню или откройте отчеты.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Sotrudniki">
+         <layout class="QVBoxLayout" name="verticalLayout_Sotrudniki">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_Sotrudniki"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_Sotrudniki_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddSotrudnik">
+              <property name="text">
+               <string>Добавить сотрудника</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteSotrudnik">
+              <property name="text">
+               <string>Удалить сотрудника</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_Sotrudniki">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Klienti">
+         <layout class="QVBoxLayout" name="verticalLayout_Klienti">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_Klienti"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_Klienti_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddKlient">
+              <property name="text">
+               <string>Добавить клиента</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteKlient">
+              <property name="text">
+               <string>Удалить клиента</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_Klienti">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Postavshiki">
+         <layout class="QVBoxLayout" name="verticalLayout_Postavshiki">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_Postavshiki"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_Postavshiki_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddPostavshik">
+              <property name="text">
+               <string>Добавить поставщика</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeletePostavshik">
+              <property name="text">
+               <string>Удалить поставщика</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_Postavshiki">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Tovari">
+         <layout class="QVBoxLayout" name="verticalLayout_Tovari">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_Tovari"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_Tovari_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddTovar">
+              <property name="text">
+               <string>Добавить товар</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteTovar">
+              <property name="text">
+               <string>Удалить товар</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_Tovari">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_PartiiTovarov">
+         <layout class="QVBoxLayout" name="verticalLayout_PartiiTovarov">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_PartiiTovarov"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_PartiiTovarov_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddPartiya">
+              <property name="text">
+               <string>Добавить партию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeletePartiya">
+              <property name="text">
+               <string>Удалить партию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_PartiiTovarov">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Prodazhi">
+         <layout class="QVBoxLayout" name="verticalLayout_Prodazhi">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_Prodazhi"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_Prodazhi_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddProdazha">
+              <property name="text">
+               <string>Оформить продажу</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteProdazha">
+              <property name="text">
+               <string>Удалить продажу</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_Prodazhi">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_PozitsiiProdazh">
+         <layout class="QVBoxLayout" name="verticalLayout_PozitsiiProdazh">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_PozitsiiProdazh"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_PozitsiiProdazh_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddPozitsiyaProdazhi">
+              <property name="text">
+               <string>Добавить позицию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeletePozitsiyaProdazhi">
+              <property name="text">
+               <string>Удалить позицию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_PozitsiiProdazh">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_PostupleniyaTovarov">
+         <layout class="QVBoxLayout" name="verticalLayout_PostupleniyaTovarov">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_PostupleniyaTovarov"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_PostupleniyaTovarov_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddPostuplenie">
+              <property name="text">
+               <string>Добавить поступление</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeletePostuplenie">
+              <property name="text">
+               <string>Удалить поступление</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_PostupleniyaTovarov">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_SpisaniyaTovarov">
+         <layout class="QVBoxLayout" name="verticalLayout_SpisaniyaTovarov">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_SpisaniyaTovarov"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_SpisaniyaTovarov_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddSpisanie">
+              <property name="text">
+               <string>Оформить списание</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteSpisanie">
+              <property name="text">
+               <string>Удалить списание</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_SpisaniyaTovarov">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_PozitsiiSpisaniy">
+         <layout class="QVBoxLayout" name="verticalLayout_PozitsiiSpisaniy">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_PozitsiiSpisaniy"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_PozitsiiSpisaniy_Buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_AddPozitsiyaSpisaniya">
+              <property name="text">
+               <string>Добавить позицию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeletePozitsiyaSpisaniya">
+              <property name="text">
+               <string>Удалить позицию</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_PozitsiiSpisaniy">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_Reports">
+         <layout class="QVBoxLayout" name="verticalLayout_ReportsPage">
+          <item>
+           <widget class="QLabel" name="label_Reports_Title">
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Формирование Отчетов</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_ReportSelection">
+            <item>
+             <widget class="QLabel" name="label_ReportTypePrompt">
+              <property name="text">
+               <string>Выберите тип отчета:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_ReportType">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_ReportParams">
+            <property name="title">
+             <string>Параметры отчета</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_ReportParams"/>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_ReportGenerate">
+            <item>
+             <spacer name="horizontalSpacer_ReportGenerate">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_GenerateReport">
+              <property name="text">
+               <string>Сформировать отчет</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEdit_ReportOutput">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Monospace</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_ToggleReports">
+        <property name="text">
+         <string>Открыть раздел отчетов</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
