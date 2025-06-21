@@ -1,0 +1,95 @@
+<script>
+  // Функция для чтения файла как base64 строки
+  function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.result) {
+          const base64String = reader.result.split(',')[1];
+          resolve({
+            fileName: file.name,
+            mimeType: file.type,
+            base64Content: base64String
+          });
+        } else {
+          reject(new Error("FileReader result is null"));
+        }
+      };
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Обработчик нажатия на кнопку "Отправить"
+  document.getElementById('submit').addEventListener('click', function() {
+    this.disabled = true; // Блокируем кнопку, чтобы избежать повторных нажатий
+    this.textContent = 'Отправка...';
+
+    // Собираем данные из формы
+    const placeName = document.getElementById('place-name').value;
+    const comment = document.getElementById('text-comment').value;
+    const reactionElement = document.querySelector('input[name="reaction"]:checked');
+    const reactionValue = reactionElement ? reactionElement.id : 'не выбрана'; // Используем ID как значение реакции
+
+    const formData = {
+      placeName: placeName,
+      comment: comment,
+      reaction: reactionValue
+      };
+
+    // Обработка файлов
+    const photoUploadInput = document.getElementById('photoUpload');
+    const files = photoUploadInput.files;
+    const fileDataPromises = [];
+
+    if (files.length > 0) {
+      if (files.length > 10) {
+        alert('Можно загрузить не более 10 фотографий.');
+        document.getElementById('submit').disabled = false;
+        document.getElementById('submit').textContent = 'Отправить';
+        return; // Прерываем отправку
+      }
+      for (let i = 0; i < files.length; i++) {
+        fileDataPromises.push(readFileAsBase64(files[i]));
+      }
+    }
+
+    Promise.all(fileDataPromises)
+      .then(filesDataArray => {
+        // Вызываем функцию Google Apps Script
+        google.script.run
+          .withSuccessHandler(function(response) {
+            // Очистка формы 
+            document.getElementById('place-name').value = '';
+            document.getElementById('text-comment').value = '';
+            const reactionRadios = document.querySelectorAll('input[name="reaction"]');
+            // Проходим по каждой и снимаем выделение
+            reactionRadios.forEach(radio => {
+              radio.checked = false;
+            });
+            photoUploadInput.value = null; // Сброс выбранных файлов
+            // Обновляем текст в кастомном загрузчике
+            const customUploadSpan = document.querySelector(".custom-upload span");
+            if(customUploadSpan) customUploadSpan.textContent = "Upload photo";
+            
+            // Перенаправить на главную страницу
+            window.location.hash = '#title'; 
+            document.getElementById('submit').disabled = false;
+            document.getElementById('submit').textContent = 'Отправить';
+          })
+          .withFailureHandler(function(error) {
+            alert('Ошибка при отправке: ' + error.message);
+            console.error('Ошибка GS:', error);
+            document.getElementById('submit').disabled = false;
+            document.getElementById('submit').textContent = 'Отправить';
+          })
+          .processFormData(formData, filesDataArray);
+      })
+      .catch(error => {
+        alert('Ошибка при обработке файлов: ' + error.message);
+        console.error('Ошибка чтения файлов:', error);
+        document.getElementById('submit').disabled = false;
+        document.getElementById('submit').textContent = 'Отправить';
+      });
+  });
+</script>
